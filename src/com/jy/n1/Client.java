@@ -27,7 +27,7 @@ public class Client {
 		BufferedReader br = null;
 
 		try {
-			sc = new Socket("211.238.142.24", 8282);
+			sc = new Socket("211.238.142.45", 8282);
 			boolean check = true;
 
 			while (check) {
@@ -36,22 +36,19 @@ public class Client {
 				os = sc.getOutputStream(); // byte
 				ow = new OutputStreamWriter(os);
 				bw = new BufferedWriter(ow);
+				bw.write(str + "\r\n");
+				bw.flush();
 
 				if (str.equals("stop") || str.equals("null")) {
-					check = false;
 					break;
 				}
 
-				bw.write(str + "\r\n");
-				bw.flush();
 				System.out.println("서버로 전송 완료");
-
 				is = sc.getInputStream();
 				ir = new InputStreamReader(is);
 				br = new BufferedReader(ir);
 				str = br.readLine();
 				if (str.equals("stop") || str.equals("null")) {
-					check = false;
 					break;
 				}
 

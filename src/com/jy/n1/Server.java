@@ -39,7 +39,7 @@ public class Server {
 				ir = new InputStreamReader(is); // char 처리
 				br = new BufferedReader(ir); // String 처리
 				String str = br.readLine();
-				
+
 				if (str.equals("stop") || str.equals("null")) {
 					check = false;
 					break;
@@ -48,18 +48,19 @@ public class Server {
 
 				System.out.println("클라이언트로 전송할 메시지 입력");
 				str = ssc.next();
-				if (str.equals("stop") || str.equals("null")) {
-					check = false;
-					break;
-				}
 				sc.getOutputStream();
 				os = sc.getOutputStream();
 				ow = new OutputStreamWriter(os);
 				bw = new BufferedWriter(ow);
 				bw.write(str + "\r\n");
 				bw.flush();
-				System.out.println("클라이언트로 전송 완료");
+
+				if (str.equals("stop") || str.equals("null")) {
+					check = false;
+					break;
+				}
 			}
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
