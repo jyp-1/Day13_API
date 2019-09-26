@@ -10,21 +10,21 @@ import java.util.StringTokenizer;
 public class MenuMaker {
 
 	private ArrayList<String> lunchs;
-	private ArrayList<String> dinners;
+	private ArrayList<String> dinners;								//<- 현재는 null값
 
 	public String selectMenu(String select) {
 		Random random = new Random();
 		String menu = null;
-		if (select.equals("1")) {
-			menu = lunchs.get(random.nextInt(lunchs.size()));
-		} else {
+		if (select.equals("1")) {									//값을 한개씩 빼는 코드 
+			menu = lunchs.get(random.nextInt(lunchs.size()));		//호출을 먼저 해야 lunchs 값이 null이 되지 않는다.
+		} else {													// server2에서 호출 후에 실행시켜야 한다.
 			menu = dinners.get(random.nextInt(dinners.size()));
 		}
 
 		return menu;
 	}
 
-	public void init() {
+	public void init() {										//호출하는 코드 
 		this.lunchs = this.makeMenu("lunch.txt", "-");
 		this.dinners = this.makeMenu("dinner.txt", ",");
 	}
