@@ -6,6 +6,7 @@ import java.net.Socket;
 import com.jy.n2.food.MenuMaker;
 import com.jy.n2.network.Network;
 
+
 public class Server2 {
 
 	public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Server2 {
 
 			network.send(sc, menu);
 
-			select = network.receive(sc);
+			
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

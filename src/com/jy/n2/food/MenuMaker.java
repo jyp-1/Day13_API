@@ -50,7 +50,8 @@ public class MenuMaker {
 
 				StringTokenizer st = new StringTokenizer(str, delim); // 파싱
 				while (st.hasMoreTokens()) { // 데이터가 더 있다면
-					ar.add(st.nextToken().trim()); // arrylist에 있는 데이터 계속 추가
+					String s = st.nextToken();
+					ar.add(s.trim()); // arrylist에 있는 데이터 계속 추가
 				}
 
 			} // 바깥 while
